@@ -6,25 +6,48 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import {HttpClientModule} from '@angular/common/http'
+import { DispPage } from '../pages/disp/disp';
+import { DispPageModule } from '../pages/disp/disp.module';
+import { FavsPage } from '../pages/favs/favs';
+import { FavsProvider } from '../providers/favs/favs';
+import { SearchPage } from '../pages/search/search';
+import { TabsPage } from '../pages/tabs/tabs';
+import { GamesPage } from '../pages/games/games';
+import { PetsPage } from '../pages/pets/pets';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    DispPage,
+    FavsPage,
+    SearchPage,
+    TabsPage,
+    GamesPage,
+    PetsPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    DispPage,
+    FavsPage,
+    SearchPage,
+    TabsPage,
+    GamesPage,
+    PetsPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    FavsProvider
   ]
 })
 export class AppModule {}

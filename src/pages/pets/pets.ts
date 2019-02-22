@@ -1,14 +1,22 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
-import { HttpClient } from '@angular/common/http';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { DispPage } from '../disp/disp';
 import { SearchPage } from '../search/search';
+import { HttpClient } from '@angular/common/http';
 
+/**
+ * Generated class for the PetsPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+
+@IonicPage()
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html'
+  selector: 'page-pets',
+  templateUrl: 'pets.html',
 })
-export class HomePage {
+export class PetsPage {
 
   disp = [];
   dispP = DispPage;
@@ -16,8 +24,8 @@ export class HomePage {
 
 
   constructor(public navCtrl: NavController, public http: HttpClient) {
-    this.http.get("/v1/klfst?&category=5020&offset=1&lim=29&lang=es").subscribe(data=>{
-      //console.log(JSON.stringify(data))
+    this.http.get("/v1/klfst?&category=4020&offset=1&lim=29&lang=es").subscribe(data=>{
+     // console.log(JSON.stringify(data))
       if (data.hasOwnProperty('list_ads')){
         this.disp = data['list_ads'];
       }
